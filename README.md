@@ -4,3 +4,5 @@ This application monitors a GitHub repository for new releases of a certain tag 
 The database server needs to be configured in the application.properties file and the database tables will be auto-created on first startup.
 
 All application configuration is done in the database and the current data in it will be loaded on each task run.
+
+The application was initially built to trigger deployments of third-party software when a new release is published via a third-party CI (in my case TeamCity), but it could be useful for other use cases as well.
