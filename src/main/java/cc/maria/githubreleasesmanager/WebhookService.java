@@ -26,7 +26,7 @@ public class WebhookService {
 
             MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
             headers.add("Authorization", "Bearer eyJ0eXAiOiAiVENWMiJ9.VlNuX1lTX0VYVURiMHpGbTNXSnZ5bGFVQm1B.ZmQ2NWQ2NTctMjNjNC00MWMzLWJiZTgtNjczYzVlZmRiOTAx");
-            restTemplate.postForObject(repository.getWebhook(), new HttpEntity<>("", headers), Void.class);
+            restTemplate.postForObject(repository.getWebhook(), new HttpEntity<>("{}", headers), Void.class);
             repository.setLastRelease(Integer.toString(response.id));
             repositoriesRepository.save(repository);
         }
