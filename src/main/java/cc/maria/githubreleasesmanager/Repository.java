@@ -10,6 +10,7 @@ public class Repository {
     private String repo;
     private String webhook;
     private String lastRelease;
+    private String downloadRegex;
 
     protected Repository () {}
 
@@ -31,5 +32,9 @@ public class Repository {
 
     public void setLastRelease(String lastRelease) {
         this.lastRelease = lastRelease;
+    }
+
+    public String getDownloadRegex() {
+        return downloadRegex;
     }
 }

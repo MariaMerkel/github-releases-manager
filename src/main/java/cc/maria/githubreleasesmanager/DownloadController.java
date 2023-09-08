@@ -26,6 +26,10 @@ public class DownloadController {
 
         GitHubReleaseResponse response = restTemplate.getForObject("https://api.github.com/repos/" + optionalRepository.get().getRepo() + "/releases/latest", GitHubReleaseResponse.class);
 
-        return new RedirectView(response.tarball_url);
+        for (GitHubReleaseResponse.Asset asset : response.assets)
+            if (asset.name.matches(optionalRepository.get().getDownloadRegex()))
+                return new RedirectView(asset.browser_download_url);
+
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     }
 }
